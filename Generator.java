@@ -11,35 +11,27 @@
 //############################################################################
 public class Generator
 {
-  /** untere Grenze der zu generierenden Ganzzahl */
   private int intMin;
   
-  /** obere Grenze der zu generierenden Ganzzahl */
   private int intMax;
   
-  /** untere Grenze der zu generierenden Langzahl */
   private long lngMin;
   
-  /** oberen Grenze der zu generierenden Langzahl */
   private long lngMax;
   
-  /** untere Grenze der zu generierenden Gleitzahl */
   private double dblMin;
   
-  /** obere Grenze der zu generierenden Gleitzahl */
   private double dblMax;
   
-  /** untere Grenze der zu generierenden Zeichenkette */
   private String strMin;
   
-  /** obere Grenze der zu generierenden Zeichenkette */
   private String strMax;
   
   //##########################################################################
-  /** Konstruiert ein Objekt mit definierten Vorgabewerte der einzelnen Typen
+  /** 
   */
   //##########################################################################
-	public Generator()
+  public Generator()
   {
     intMin = 0;
     intMax = 1;
@@ -52,13 +44,10 @@ public class Generator
   }
   
   //##########################################################################
-  /** Konstruiert ein Objekt mit übergebenen Werten für Ganzzahlen
-    *
-    * @param minimum Untere Grenze der zu generierenden Ganzzahl
-    * @param maximum Obere Grenze der zu generierenden Ganzzahl
+  /** 
   */
   //##########################################################################
-	public Generator(int minimum, int maximum)
+  public Generator(int minimum, int maximum)
   {
     intMin = minimum;
     intMax = maximum;
@@ -71,13 +60,10 @@ public class Generator
   }
   
   //##########################################################################
-  /** Konstruiert ein Objekt mit übergebenen Werten für Langzahlen
-    *
-    * @param minimum Untere Grenze der zu generierenden Langzahl
-    * @param maximum Obere Grenze der zu generierenden Langzahl
+  /** 
   */
   //##########################################################################
-	public Generator(long minimum, long maximum)
+  public Generator(long minimum, long maximum)
   {
     lngMin = minimum;
     lngMax = maximum;
@@ -90,13 +76,10 @@ public class Generator
   }
   
   //##########################################################################
-  /** Konstruiert ein Objekt mit übergebenen Werten für Gleitzahlen
-    *
-    * @param minimum Untere Grenze der zu generierenden Gleitzahl
-    * @param maximum Obere Grenze der zu generierenden Gleitzahl
+  /**
   */
   //##########################################################################
-	public Generator(double minimum, double maximum)
+  public Generator(double minimum, double maximum)
   {
     dblMin = minimum;
     dblMax = maximum;
@@ -114,7 +97,7 @@ public class Generator
     * @return Generierte Ganzzahl
   */
   //##########################################################################
-	public int ganzzahl()
+  public int ganzzahl()
   {
     return ganzzahl(intMin, intMax);
   }
@@ -128,29 +111,29 @@ public class Generator
     * @return Generierte Ganzzahl
   */
   //##########################################################################
-	public static int ganzzahl(int min, int max)
+  public static int ganzzahl(int min, int max)
   {
     return min + (int)Math.floor(Math.random() * (max - min + 1));
   }
 
   //##########################################################################
-  /** Erzeugt und liefert eine Langzahl im Wertebereich der Attribute min und max
+  /** Erzeugt und liefert eine Ganzzahl im Wertebereich der Attribute min und max
     *
     * @return Generierte Ganzzahl
   */
   //##########################################################################
-	public long langzahl()
+  public long langzahl()
   {
     return langzahl(lngMin, lngMax);
   }
 
   //##########################################################################
-  /** Erzeugt und liefert eine Langzahl im Wertebereich der Attribute min und max
+  /** Erzeugt und liefert eine Ganzzahl im Wertebereich der Attribute min und max
     *
     * @return Generierte Ganzzahl
   */
   //##########################################################################
-	public static long langzahl(long min, long max)
+  public static long langzahl(long min, long max)
   {
     return min + (long)Math.floor(Math.random() * (max - min + 1));
   }
@@ -195,7 +178,7 @@ public class Generator
     * @return Generierte Gleitzahl
   */
   //##########################################################################
-	public double gleitzahl()
+  public double gleitzahl()
   {
     return gleitzahl(dblMin, dblMax);
   }
@@ -209,7 +192,7 @@ public class Generator
     * @return Generierte Gleitzahl
   */
   //##########################################################################
-	public static double gleitzahl(double min, double max)
+  public static double gleitzahl(double min, double max)
   {
     return Math.random() * (max - min) + min;
   }
@@ -249,7 +232,7 @@ public class Generator
   }
 
   //##########################################################################
-  /** Erzeugt und liefert eine Liste von Symbolen im Wertebereich von min und max
+  /** Erzeugt und liefert eine Liste von Ganzzahlen im Wertebereich von min und max
     * als Zeichenkette
     *
     * @param anzahl Anzahl der Elemente der zu generierenden Liste
@@ -259,7 +242,7 @@ public class Generator
     * @return Generierte Liste mit Symbolen
   */
   //##########################################################################
-	public String symboleGanzzahl(int anzahl, int min, int max)
+  public String symboleGanzzahl(int anzahl, int min, int max)
   {
     String ergebnis = new String();
     while (ergebnis.length() < anzahl)
@@ -278,7 +261,7 @@ public class Generator
     * @return Generierte Liste mit Symbolen
   */
   //##########################################################################
-	public String symboleGanzzahlUnikat(int anzahl)
+  public String symboleGanzzahlUnikat(int anzahl)
   {
     String ergebnis = new String();
     Integer ziffer = 0;
@@ -296,32 +279,32 @@ public class Generator
   }  
 
   //##########################################################################
-  /** Erzeugt und liefert eine Liste von Ganzzahlen im Wertebereich von min und max
-    * als Zeichenkette deren Elemente einmalig sind
+  /** Erzeugt und liefert ein Symbol im Wertebereich von min und max
+    * als Zeichenkette 
     *
-    * @param minimum Untere Grenze der zu generierenden Zeichenkette
-    * @param maximum Obere Grenze der zu generierenden Zeichenkette
+    * @param minimum Untere Grenze des Symbol
+    * @param maximum Obere Grenze des Symbol
     *
-    * @return Generierte Liste mit Symbolen
+    * @return Generierte Zeichenkette mit einem Symbol
   */
   //##########################################################################
-	public static String symbol(String minimum, String maximum)
+  public static String symbol(String minimum, String maximum)
   {
     return new String().format("%c", ganzzahl(minimum.codePointAt(0), maximum.codePointAt(0)));
   }  
 
   //##########################################################################
-  /** Erzeugt und liefert eine Liste von Ganzzahlen im Wertebereich von min und max
-    * als Zeichenkette deren Elemente einmalig sind
+  /** Erzeugt und liefert eine Liste von Symbolenim Wertebereich von min und max
+    * als Zeichenkette 
     *
-    * @param anzahl Anzahl der Elemente der zu generierenden Liste
-    * @param minimum Untere Grenze der zu generierenden Zeichenkette
-    * @param maximum Obere Grenze der zu generierenden Zeichenkette
+    * @param anzahl Anzahl der Symbole
+    * @param minimum Untere Grenze des Symbol
+    * @param maximum Obere Grenze des Symbol
     *
-    * @return Generierte Liste mit Symbolen
+    * @return Generierte Zeichenkette mit einem Symbol
   */
   //##########################################################################
-	public static String symbole(int anzahl, String minimum, String maximum)
+  public static String symbole(int anzahl, String minimum, String maximum)
   {
     String ergebnis = new String();
     for (int i = 0; i < anzahl; i++)
